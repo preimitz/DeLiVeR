@@ -1,2 +1,2 @@
 # DELIVER
-Decays of Light Vectors Revised
+Decays of Light Vectors Revised (DeLiVeR)
