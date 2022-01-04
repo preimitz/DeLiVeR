@@ -35,8 +35,8 @@ isoScalarPhase0 = [0., math.pi,0.]
 
 isoVectorMasses0 = [775.26*par.MeV,1470*par.MeV,1.8424500809807751]
 isoVectorWidths0 = [149.1 *par.MeV, 400*par.MeV, 0.40316760691226605]
-isoVectorAmp0   = [-2.34  ,0.594  , 15.658829780911248  ]
-isoVectorPhase0 = [0,0.317,3.136283331311816e-08]
+isoVectorAmp0 = [0. ,0. , 15.658829780911248 ]
+isoVectorPhase0 = [0,math.pi,0.]
 
 # masses and amplitudes, I=0, phi resonances (mode 1,2,3)
 
