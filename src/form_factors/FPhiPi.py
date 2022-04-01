@@ -11,8 +11,8 @@ import src.pars as par
 #
 
 # amplitudes etc
-amp   = [0.045,0.0315,0.  ]
-phase = [180. ,0.    ,180.]
+amp   = [0.177522453644825,0.023840592398187477,0.  ]
+phase = [0. ,123.82008351626034    ,0.]
 br4pi = [0.   ,0.33  ,0.  ]
 # rho masses and widths
 rhoMasses = [0.77526,1.593,1.909]
