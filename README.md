@@ -2,7 +2,7 @@
 
 **by Ana Luisa Foguel, Peter Reimitz, and Renata Zukanovich Funchal**
 
-[![arXiv](http://img.shields.io/badge/arXiv-2112.XXXXX-B31B1B.svg)](https://arxiv.org)
+[![arXiv](http://img.shields.io/badge/arXiv-2201.01788-B31B1B.svg)](https://arxiv.org/abs/2201.01788)
 
 ## Introduction
 
