@@ -89,7 +89,7 @@ def GammaDM(M):
     for ix in range(0,len(amp)) :
         mR2 = rhoMasses[ix]**2
         wid = rhoWidths[ix]*(1.-br4pi[ix]
-                             + br4pi[ix]*mR2/sHat*((sHat-16.*mpi**2)/(mR2-16.*mpi**2)**1.5))
+                             + br4pi[ix]*mR2/sHat*((sHat-16.*mpi**2)**1.5/(mR2-16.*mpi**2)**1.5))
         form += wgts[ix]*mR2/(mR2-sHat-complex(0.,1.)*ecms*wid)
     pcm = 0.5*ecms*Resonance.beta(sHat,mPhi,mpi)
     output = 1/12./math.pi*pcm**3*abs(form)**2
@@ -104,7 +104,7 @@ def sigmaSM(sHat) :
     for ix in range(0,len(amp)) :
         mR2 = rhoMasses[ix]**2
         wid = rhoWidths[ix]*(1.-br4pi[ix]
-                             + br4pi[ix]*mR2/sHat*((sHat-16.*mpi**2)/(mR2-16.*mpi**2)**1.5))
+                             + br4pi[ix]*mR2/sHat*((sHat-16.*mpi**2)**1.5/(mR2-16.*mpi**2)**1.5))
         pre += wgts[ix]*mR2/(mR2-sHat-complex(0.,1.)*ecms*wid)
     pcm = 0.5*ecms*Resonance.beta(sHat,mPhi,mpi)
     # phase-space, |me|^2 factors 
