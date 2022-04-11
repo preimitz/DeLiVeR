@@ -60,7 +60,7 @@ class Processes():
             sumQq += self.cMed_c
             sumQq2 += self.cMed_c**2
             nf += 1
-        if (2* par.mUps)<Q:
+        if (par.mUps)<Q:
             sumQq += self.cMed_b
             sumQq2 += self.cMed_b**2
             nf += 1
