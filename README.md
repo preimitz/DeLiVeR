@@ -6,7 +6,7 @@
 
 ## Introduction
 
-We provide a numerical package to calculate decay quantities of light vector particles. It includes the calcualtion of decay widths, and branching ratios for all leptonic and almost all hadronic decays as well as decays to some exemplary dark matter models. Those quantities are needed to set constraints on vector mediator models in the GeV and sub-GeV range.
+We provide a numerical package to calculate decay quantities of light vector particles. It includes the calculation of decay widths, and branching ratios for all leptonic and almost all hadronic decays as well as decays to some exemplary dark matter models. Those quantities are needed to set constraints on vector mediator models in the GeV and sub-GeV range.
 
 ## Paper
 
