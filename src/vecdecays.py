@@ -90,7 +90,7 @@ class Processes():
             kin = m*(1 + 2*(mF**2/m**2))*numpy.sqrt(1- 4*(mF**2/m**2))
             return pre*kin
     
-    def calcWidthQuarksDP(self):
+    def calcWidthQuarksDP(self,g):
         mass = []
         widthscc = []
         widthsbb = []
@@ -98,9 +98,9 @@ class Processes():
         m = 0
         while m < 3.0 :
             mass.append(m)
-            width2cc = GammaVff(3.,g,m,2*ge/3,mc_)
-            width2bb = GammaVff(3.,g,m,-1*ge/3,mb_)
-            width2tt = GammaVfff(3.,g,m,2*ge/3,mt_)
+            width2cc = self.GammaVff(3.,g,m,2*par.ge/3,par.mc_)
+            width2bb = self.GammaVff(3.,g,m,-1*par.ge/3,par.mb_)
+            width2tt = self.GammaVfff(3.,g,m,2*par.ge/3,par.mt_)
             widthscc.append(width2cc)
             widthsbb.append(width2bb)
             widthstt.append(width2tt)
@@ -265,9 +265,9 @@ class Widths(Utilities,Processes):
             self.wquark.append(qwidth)
             # DM
             if self.DM !="No":
-                if self.DM=="inelastic": width2DM = Gamma2DM(self.gDM, m, m/self.Rval,self.DM,splitting=splitting)
+                if self.DM=="inelastic": width2DM = self.Gamma2DM(self.gDM, m, m/self.Rval,self.DM,splitting=self.split)
                 else: width2DM = self.Gamma2DM(self.gDM, m, m/self.Rval,self.DM)
-                self.widthslep["DM"].append(width2DM)
+                self.widthspert["DM"].append(width2DM)
                 wDMtot += width2DM
             self.wDM.append(wDMtot)     
             #print (mDM)
