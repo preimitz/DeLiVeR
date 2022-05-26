@@ -259,8 +259,8 @@ class Widths(Utilities,Processes):
                 wLtot+=wlep
             self.wlep.append(wLtot) 
             # quarks
-            norm = self.GammaVff(1,self.gQ,m,self.clep[1],par.mlep_[1])/self.clep[1]**2
-            qwidth =self.gQ*self.gQ*self.RInclusive(m)*norm
+            norm = self.GammaVff(1,self.gQ,m,1,par.mlep_[1])
+            qwidth =self.RInclusive(m)*norm
             self.widthspert["quarks"].append(qwidth)
             self.wquark.append(qwidth)
             # DM
