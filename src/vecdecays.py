@@ -202,6 +202,7 @@ class Widths(Utilities,Processes):
         self.Rval = model.R
         self.gDM = model.gDM
         self.gQ = model.gQ
+        self.split = model.split
         self.masses = []
         self.wtotal=[]
         self.wqcd=[]
@@ -503,7 +504,7 @@ class Branching(Utilities):
         if len(BRsingle_lep)>0:
             for xbr in BRsingle_lep:
                 ax.plot(self.masses,self.BRslep[xbr], lw=1.2, label="$\\mathcal{F} =$"+xbr)
-        if BRDM != None: ax.plot(self.masses,self.BRslep["DM"],lw=1.2,label=BRDM)
+        if BRDM != None: ax.plot(self.masses,self.BRspert["DM"],lw=1.2,label=BRDM)
         ax.set_title(self.modelname)
         ax.set_xlabel("$m_{Z_Q}$ [GeV]",fontsize=14)
         ax.set_ylabel("Br ($\\; Z_{Q} \\; \\to \\; \\mathcal{F} \\;$)",fontfamily= 'sans-serif',fontsize=14)
