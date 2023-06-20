@@ -335,8 +335,7 @@ class Widths(Utilities,Processes):
             self.writefiles('models/'+mstr+"_"+Wtype+'/widths/width_{0}.txt'.format(channel),x=self.masses,y=widths[channel])
         # DM widths
         if self.DM != "No":
-            self.writefiles('models/'+mstr+"_"+Wtype+'/widths/width_'+Wtype+'.txt'.format(channel),
-                            x=self.masses,y=widths["DM"])
+            self.writefiles('models/'+mstr+"_"+Wtype+'/widths/width_'+Wtype+'.txt', x=self.masses,y=widths["DM"])
         # total width
         self.writefiles('models/'+mstr+"_"+Wtype+'/widths/'+mstr+'_width_total.txt',x=self.masses,y=self.wtotal)
         # total hadronic+quarks width
@@ -368,23 +367,29 @@ class Widths(Utilities,Processes):
             
     # function to plot Widths
     #---------------  plot -------------------# 
-    def plot(self,xrange=[0.1,2.],yrange=[1.e-3,2.], name=None, Wsingle_had=[],Wsingle_lep=[],Wpert=False):
-        Wtype= None
-        if self.DM != "No":
-            Wtype = 'DM_'+self.DM.replace(" ", "_")
-        elif self.DM=="No":
-            Wtype = 'SM'
+    def plot(self,xrange=[0.1,2.],yrange=[1.e-3,2.], name=None, Wsingle_had=[],Wsingle_lep=[], W_DM=False, Wpert=False):
         fig, ax = fig, ax = plt.subplots(figsize=(9., 4.8))
         ax.plot(self.masses,self.wtotal, c='darkviolet', lw =1.3, label='total width')
         all_had = {**self.widthshad,**self.singlehad}
         if len(Wsingle_had)>0:
             for xw in Wsingle_had:
-                ax.plot(self.masses,all_had[xw], lw=1.2, label=xw)
+                if xw=='had': ax.plot(self.masses,self.whad, lw=1.2, label='hadrons')
+                else: ax.plot(self.masses,all_had[xw], lw=1.2, label=xw)
         if len(Wsingle_lep)>0:
             for xw in Wsingle_lep:
-                ax.plot(self.masses,self.widthslep[xw], lw=1.2, label=xw)
+                if xw == 'lep': ax.plot(self.masses,self.wlep, lw=1.2, label='leptons')
+                else: ax.plot(self.masses,self.widthslep[xw], lw=1.2, label=xw)
         if Wpert==True:
             ax.plot(self.masses,self.wquark,lw=1.2,linestyle="dashed",label="quarks")
+        ## DM width ##  
+        Wtype= None
+        if self.DM != "No":
+            Wtype = 'DM_'+self.DM.replace(" ", "_")
+            if W_DM==True:
+                ax.plot(self.masses,self.wDM,lw=1.2,linestyle="dashdot",label= self.DM)
+        elif self.DM=="No":
+            Wtype = 'SM'            
+        ###############
         ax.set_title(self.modelname)
         ax.set_xlabel("$m_{Z_Q}$ [GeV]",fontfamily= 'serif', fontsize=14)
         ax.set_ylabel("$\Gamma_{tot}$",fontfamily= 'serif',fontsize=14)
