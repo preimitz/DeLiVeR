@@ -111,27 +111,28 @@ class Processes():
     ### Widths with DM final states ###
     
     # vector -> DM DM
-    def Gamma2DM(self,g, mX, mDM,DMtype="No", splitting=0.1): # Vector Boson -> X X (DM)
-        if mX<2*mDM: return 0
+    def Gamma2DM(self,g, mV, mDM,DMtype="No", splitting=0.1): # Vector Boson -> X X (DM)
+        if mV<2*mDM: return 0
         #model-independent prefactor for two body decay
-        pre = g**2/48./math.pi*mX*(1-4*mDM**2/mX**2)**(1/2)/mX**2
+        pre = g**2/48./math.pi*mV*(1-4*mDM**2/mV**2)**(1/2)/mV**2
         #model-dependent matrix element
         me = 0.
         if DMtype in ["complex scalar","Majorana","Majorana fermion"]:
-            me = mX**2*(1- (4*mDM**2/mX**2))
+            me = mV**2*(1- (4*mDM**2/mV**2))
             # identical particle factor
             if DMtype in ["Majorana","Majorana fermion"]: me*=2.
         elif DMtype in ["Dirac","Dirac fermion"]:
-            me = 4*mX**2*(1+2*mDM**2/mX**2)
+            me = 4*mV**2*(1+2*mDM**2/mV**2)
         elif DMtype=="inelastic":
-            mDM2 = mDM+splitting
-            if mX<mDM+mDM2: return 0
+            mDM2 = mDM*(splitting+1)
+            if mV<mDM+mDM2: return 0
             else:
-                pre = g**2/48./math.pi*((1-(mDM+mDM2)**2/mX**2)*(1-splitting**2/mX**2))**0.5
-                me = 4.*mX**2*((1+2*mDM*mDM2/mX**2)-splitting**2*(1+(mDM+mDM2)**2/mX**2)/2./mX**2)
+                pre = g**2/48./math.pi*((1-(mDM+mDM2)**2/mV**2)*(1-(mDM*splitting)**2/mV**2))**0.5
+                me = 4.*mV*((1+2*mDM*mDM2/mV**2)-(mDM*splitting)**2*(1+(mDM+mDM2)**2/mV**2)/2./mV**2) 
         else:
             print("DM type not specified")
         return pre*me
+    
     
                 
 class Model():
